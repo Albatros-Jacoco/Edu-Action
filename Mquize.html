@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Creating Quizes</title>
+	    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aa44593961.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <style type="text/css">
+        body {
+            max-width: 99%;
+        }
+        
+        .mynavbar {
+            list-style-type: none;
+            margin-top: -10px;
+            margin-left: -10px;
+            padding: 0;
+            overflow: hidden;
+            background-color: #1abc9c;
+            position: fixed;
+            /*height:90px;*/
+            width: 110%;
+            box-shadow: 2px 2px 9px 1px #1abc9c;
+        }
+        
+        .mynavbarl {
+            float: left;
+        }
+        
+        .mynavbarl a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-family: Times New Roman;
+        }
+        
+        .mynavbarl a:hover {
+            text-decoration: none;
+        }
+        
+        .mynavbar li a:not(.active) {
+            padding-left: 90px;
+        }
+        
+        .mynavbarl a:hover:not(.active) {
+            color: #f55;
+        }
+        
+        .active {
+            /*background-color: #4CAF50;*/
+            padding-left: 20px;
+        }
+        
+        .sign {
+            padding-left: 0px;
+            margin-left: 500px;
+            border-left: 1px solid white;
+        }
+        
+        .content {
+            position: relative;
+            top: 100px;
+        }
+        
+        .content h4 {
+            text-align: center;
+        }
+        
+        div {
+            align-items: center;
+        }
+        
+        .question {
+            position: relative;
+            background-color: #8844aa;
+            height: 100px;
+            width: 700px;
+            text-align: center;
+            background-position: center;
+            /*left: 27%;*/
+            padding-top: 10px;
+        }
+        
+        div button {
+            width: 300px;
+            height: 100px;
+            background-color: #4433ff;
+            margin-top: 50px;
+        }
+        
+        div button:hover {
+            cursor: pointer;
+        }
+		div div {float: left;}
+		p {text-align: right;}
+		.questionArea{margin-bottom: 50px;}
+		#questionarea
+		{
+			width: 25em;
+			height: 60px;
+			overflow: auto;
+			box-shadow: 1px 1px 10px 2px green;
+			border-radius: 6px 6px;
+		}
+		#questionarea:empty:not(:focus):before {content: attr(data-placeholder)}
+		textarea{font-size: 18px;}
+		button{position:relative;
+			max-width: 300px;	
+			left: 30%;
+			top: 24px;}
+		iframe{min-height: 830px;
+			float: center;}
+		.answer{
+			box-shadow: 1px 1px 10px 2px lightgreen;
+			border-radius: 8px 8px;
+			min-width: 350px;
+			float: left;}
+		
+		.ansplus:hover{
+			cursor: pointer;
+		}
+		#numans{
+			border-radius: 200% 200% 200% 200%;
+			background-color: yellow;
+			padding-right: 1px;
+			text-align: center;
+			color: blue;
+			font-size: 24px;
+		}
+		iframe{
+			top:80px;
+			box-shadow: 1px 1px 16px 2px green inset;
+			border-radius: 8px 8px;
+			border-color: yellow;
+		}
+
+	</style>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	var a = 1;
+		function compile() {
+	var Answer1 = document.querySelector(".Answer1");
+	var Answer2 = document.querySelector(".Answer2");
+	var Answer3 = document.querySelector(".Answer3");
+	var Answer4 = document.querySelector(".Answer4");
+	var Question = document.querySelector("#questionarea");
+	var answer1 = Answer1.value;
+	var answer2 = Answer2.value; 
+	var answer3 = Answer3.value;
+	var answer4 = Answer4.value;
+	var question = Question.innerText;
+	var code = document.querySelector(".code").contentWindow.document;
+	var httm = '<!DOCTYPE html><html><head><title>Making Quiz</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><style type="text/css">.content{position:relative;top:100px}.content h4{text-align:center}div{align-items:center}.question{position:relative;background-color:#84a;height:100px;width:800px;text-align:center;background-position:center;padding-top:10px}div button{width:300px;height:100px;background-color:#43f;margin-top:50px}div button:hover{cursor:pointer}p{padding-top:5px;color:#fff}span{color:orange}#Q1{text-align:left}.ConTent{display:block} </style></head><body><div class="ConTent"><div class="content"><h4>Check Yourself...</h4><div class="row"><div class="col-3"></div><div class="question col-6"><span id="Q1">1.</span><p id="Question">'+question+'</p></div><div class="col-3"></div></div><div class="row"><div class="col-1"></div><button id="ANSW1" class="AnsBtn col-4" onclick="myFunc1()"><span>A</span><p id="ans1">'+answer1+'</p></button><div class="col-2"></div><button id="ANSW3" class="AnsBtn col-4" onclick="myFunc3()"><span>C</span><p id="ans3">'+answer3+'</p></button><div class="col-1"></div></div><div class="row"><div class="col-1"></div><button id="ANSW2" class="AnsBtn col-4" onclick="myFunc2()"><span>B</span><p id="ans2">'+answer2+'</p></button><div class="col-2"></div><button id="ANSW4" class="AnsBtn col-4" onclick="myFunc4()"><span>D</span><p id="ans4">'+answer4+'</p></button><div class="col-1"></div></div></div></div></body></html>';
+	 document.body.onkeyup = function(){
+	    code.open();
+		code.writeln(httm);
+		code.close();
+      };
+    };
+
+compile();
+	</script>
+</head>
+<body>
+
+<div class="navBar">
+<ul class="mynavbar fixed-top">
+  <li class="mynavbarl"><a class="active" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+  <li class="mynavbarl"><a href="quizes.html">Quizes</a></li>
+  <li class="mynavbarl"><a href="Mquize.html">Creating Quizes</a></li>
+  <li class="mynavbarl"><a href="resources.html" id="resources">Resources</a></li>
+  <li class="mynavbarl"><a href="about us.html">About</a></li>
+  <div>
+  <li class="mynavbarl sign"><a href="Sign-in.html">Sign In</a></li>
+  <li class="mynavbarl"><a href="Sign-up.html">Sign Up</a></li></div>
+</ul>
+</div>
+
+	<div class="row">
+		<div class="col-sm-6 container my-5 text-center">
+			
+			<div class="col-sm-3">
+				<p id="num1">Q1</p>
+			</div>
+			<div class="col-md-6 questionArea">
+				
+				<div  id="questionarea" onkeyup="textsytle()" contenteditable="true" data-placeholder="Please insert your question..." name="question" onchange="compile()"></div>
+				
+			</div>
+
+			
+			<div>
+				<div class="mr-2 ml-4"><p id="numans">A</p></div>
+				<input type="text" class="answer Answer1" placeholder="Type your answer here..." onchange="compile()">
+			</div>
+			<br>
+			<div>
+				<div class="mr-2 ml-4"><p id="numans">B</p></div>
+				<input type="text" class="answer Answer2" placeholder="Type your answer here..." onchange="compile()">
+			</div>
+			<br>
+			<div>
+				<div class="mr-2 ml-4"><p id="numans">C</p></div>
+				<input type="text" class="answer Answer3" placeholder="Type your answer here..." onchange="compile()">
+			</div>
+			<br>
+			<div>
+				<div class="mr-2 ml-4"><p id="numans">D</p></div>
+				<input type="text" class="answer Answer4" placeholder="Type your answer here..." onchange="compile()">
+			</div>
+			
+		</div>
+		
+		<iframe src="" class="code col-sm-6"></iframe>
+		
+	</div>
+
+	
+
+
+	<button class="btn btn-primary btn-block my-3" onclick="myFunction()" onchange="compile()">Save Question</button>
+	<script type="text/javascript">
+
+	
+	
+	function myFunction()
+	{	
+		var space = document.getElementById("questionarea"); 
+		// document.getElementById("demo").innerHTML = space;
+		
+		if (space.value != undefined) {
+			alert("Please insert question");
+		}
+		else {			
+			alert("Question N:"+ a +" has been saved!");
+			a = a + 1;
+		};
+		document.getElementById("num1").innerHTML = 'Q'+ a;
+
+		answer1 = "";
+		answer2 = "";
+		asnwer3 = "";
+		answer4 = "";
+		question = "";
+
+		httm = '<!DOCTYPE html><html><head><title>Making Quiz</title><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><style type="text/css">.content{position:relative;top:100px}.content h4{text-align:center}div{align-items:center}.question{position:relative;background-color:#84a;height:100px;width:800px;text-align:center;background-position:center;padding-top:10px}div button{width:300px;height:100px;background-color:#43f;margin-top:50px}div button:hover{cursor:pointer}p{padding-top:5px;color:#fff}span{color:orange}#Q1{text-align:left}.ConTent{display:block} </style></head><body><div class="ConTent"><div class="content"><h4>Check Yourself...</h4><div class="row"><div class="col-3"></div><div class="question col-6"><span id="Q1">'+a+'.</span><p id="Question">'+question+'</p></div><div class="col-3"></div></div><div class="row"><div class="col-1"></div><button id="ANSW1" class="AnsBtn col-4" onclick="myFunc1()"><span>A</span><p id="ans1">'+answer1+'</p></button><div class="col-2"></div><button id="ANSW3" class="AnsBtn col-4" onclick="myFunc3()"><span>C</span><p id="ans3">'+answer3+'</p></button><div class="col-1"></div></div><div class="row"><div class="col-1"></div><button id="ANSW2" class="AnsBtn col-4" onclick="myFunc2()"><span>B</span><p id="ans2">'+answer2+'</p></button><div class="col-2"></div><button id="ANSW4" class="AnsBtn col-4" onclick="myFunc4()"><span>D</span><p id="ans4">'+answer4+'</p></button><div class="col-1"></div></div></div></div></body></html>';
+	};
+
+
+
+
+
+
+</script>
+</body>
+</html>

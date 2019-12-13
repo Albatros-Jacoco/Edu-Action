@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+<meta charset="utf-8">
+<title>Quizes</title>
+<style type="text/css">
+.footer{
+            position: relative;
+            top: 450px;
+            background-color: rgb(88, 97, 112);
+            box-shadow: 1px 2px 12px 2px rgb(88, 97, 112);
+        }
+        .text-uppercase{color: #c0c0c0;}
+        .list-unstyled a{
+            color: white;
+        }
+        .footer-copyright:not(p){
+            background-color: lightblue;
+            opacity: 0.7;
+            top: 10px;
+        }
+        .row div p{
+            color: #cfcfcf;;
+        }
+        .mynavbar {
+          list-style-type: none;
+          margin-top: -10px;
+          margin-left: -10px;
+          padding: 0;
+          overflow: hidden;
+          background-color: #1abc9c;
+          position: fixed;
+          /*height:90px;*/
+          width: 110%;
+          box-shadow: 2px 2px 9px 1px #1abc9c;
+
+        }
+
+        .mynavbarl {
+          float: left;
+        }
+
+        .mynavbarl a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 20px;
+          font-family: Times New Roman;
+        }
+        .mynavbarl a:hover {
+          text-decoration: none;
+        }
+        .mynavbar li a:not(.active){
+          padding-left: 90px;
+        }
+        .mynavbarl a:hover:not(.active){
+         color: #f55;
+        }
+        .active {
+          /*background-color: #4CAF50;*/
+          padding-left: 20px;
+        }
+        .sign{
+            padding-left: 0px;
+            margin-left: 500px;
+            border-left: 1px solid white;
+        }
+        .container-fluid{
+            position: relative;
+            display: block;
+        }
+        .card{
+            margin-top: 100px;
+            margin-left: 50px;
+            box-shadow: 1px 1px 13px 2px green;
+        }
+        .edited-T{
+            color: #bfbfbf;
+            font-size: 14px;
+            font-style: italic;
+        }
+</style>
+<link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aa44593961.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="navBar">
+<ul class="mynavbar fixed-top">
+  <li class="mynavbarl"><a class="active" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+  <li class="mynavbarl"><a href="quizes.html">Quizes</a></li>
+  <li class="mynavbarl"><a href="Mquize.html">Creating Quizes</a></li>
+  <li class="mynavbarl"><a href="resources.html" id="resources">Resources</a></li>
+  <li class="mynavbarl"><a href="about us.html">About</a></li>
+  <div>
+  <li class="mynavbarl sign"><a href="Sign-in.html">Sign In</a></li>
+  <li class="mynavbarl"><a href="Sign-up.html">Sign Up</a></li></div>
+</ul>
+</div>
+
+
+<div class="container-fluid row">
+<div class="card" style="width: 18rem;">
+  <img src="https://miro.medium.com/max/785/1*H-25KB7EbSHjv70HXrdl6w.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <br>
+    <h5 class="card-title">Quiz N:1 - JavaScript</h5>
+    <p class="card-text">This quiz contains questions related to Javascript.</p>
+    <p class="edited-T">-Created on November 27th, 2019</p>
+    <a href="quiz1.html" class="btn btn-primary">Check Yourself</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <img src="https://namtech.com.au/wp-content/uploads/2019/10/53.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Quiz N:2 - CSS</h5>
+    <p class="card-text">This quiz contains questions related to CSS.</p>
+    <p class="edited-T">-Created on December 2nd, 2019</p>
+    <a href="quiz2.html" class="btn btn-primary">Check Yourself</a>
+  </div>
+</div>
+</div>
+
+
+
+<div class="footer" text-align="center">
+<footer class="page-footer font-small blue pt-4">
+
+  <div class="container-fluid text-center text-md-left">
+
+    <div class="row">
+
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <h5 class="text-uppercase">Edu-Action</h5>
+        <p>"A man only learns in two ways, one by reading, and the other by association with smarter people." <br>&nbsp;&nbsp;&nbsp; - Will Rogers</p>
+        <p>We will give you a chance to hold both.</p>
+
+      </div>
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <h5 class="text-uppercase">Site</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="Mquize.html">Make Quizzes</a>
+          </li>
+          <li>
+            <a href="resources.html">Educational Resources</a>
+          </li>
+          <li>
+            <a href="quizes.html">Quizzes</a>
+          </li>
+          <li>
+            <a href="index.html">Main Page</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <h5 class="text-uppercase">About</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="Sign-in.html">Submit</a>
+          </li>
+          <li>
+            <a href="Terms.html">Terms & Conditions</a>
+          </li>
+          <li>
+            <a href="Privacy.html">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="about us.html">Contact Us</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="footer-copyright text-center py-3 mt-5"><p style="opacity: 1;">© 2019 Copyright:
+    <a href="https://sobirjon.eu5.org"> Sobirjon_20182655</a></p>
+  </div>
+
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz N:1 - Check Yourself...</title>
+    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aa44593961.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <style type="text/css">
+        body {
+            background: rgb(2,255,49);
+background: linear-gradient(90deg, rgba(2,255,49,1) 0%, rgba(179,255,193,0.044377858565301076) 6%, rgba(208,254,216,0.25726301262692575) 43%, rgba(246,246,246,0.27967197621235995) 53%, rgba(209,255,213,0.03877561766894255) 93%, rgba(2,255,49,1) 100%);
+            max-width: 99%
+        }
+        
+        .mynavbar {
+            list-style-type: none;
+            margin-top: -10px;
+            margin-left: -10px;
+            padding: 0;
+            overflow: hidden;
+            background-color: #1abc9c;
+            position: fixed;
+            /*height:90px;*/
+            width: 110%;
+            box-shadow: 2px 2px 9px 1px #1abc9c;
+        }
+        
+        .mynavbarl {
+            float: left;
+        }
+        
+        .mynavbarl a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-family: Times New Roman;
+        }
+        
+        .mynavbarl a:hover {
+            text-decoration: none;
+        }
+        
+        .mynavbar li a:not(.active) {
+            padding-left: 90px;
+        }
+        
+        .mynavbarl a:hover:not(.active) {
+            color: #f55;
+        }
+        
+        .active {
+            /*background-color: #4CAF50;*/
+            padding-left: 20px;
+        }
+        
+        .sign {
+            padding-left: 0px;
+            margin-left: 500px;
+            border-left: 1px solid white;
+        }
+        
+        .content {
+            position: relative;
+            top: 100px;
+        }
+        
+        .content h4 {
+            text-align: center;
+        }
+        
+        div {
+            align-items: center;
+        }
+        
+        .question {
+            position: relative;
+            background-color: #8844aa;
+            height: 100px;
+            width: 800px;
+            text-align: center;
+            background-position: center;
+            /*left: 27%;*/
+            padding-top: 10px;
+        }
+        
+        div button {
+            width: 300px;
+            height: 100px;
+            background-color: #4433ff;
+            margin-top: 50px;
+        }
+        
+        div button:hover {
+            cursor: pointer;
+        }
+        
+        .Next {
+            position: relative;
+            top: 150px;
+            padding: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: 18px;
+            color: white;
+            background-color: orange;
+            border-radius: 8px 8px;
+            border: 1px solid red;
+            text-decoration: none;
+            float: right;
+            left: -100px;
+            display: block;
+        }
+        
+        .Next:hover {
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        p {
+            padding-top: 5px;
+            color: white;
+        }
+        
+        span {
+            color: orange;
+        }
+        
+        #Q1 {
+            text-align: left;
+        }
+        
+        .ochko {
+            display: none;
+            position: relative;
+            bottom: -10em;
+            left: 44%;
+            height: 100px;
+            width: 200px;
+            border: 1px solid red;
+            border-radius: 16px 16px;
+            box-shadow: 1px 1px 15px 3px red inset;
+        }
+        
+        #ochko {
+            text-align: center;
+            padding: 20px;
+            color: red;
+            font-size: 35px;
+        }
+        
+        .ConTent {
+            display: block;
+        }
+        .footer{
+            position: relative;
+            top: 320px;
+            width: 101%;
+            background-color: rgb(88, 97, 112);
+        }
+        .text-uppercase{color: #c0c0c0;}
+        .list-unstyled a{
+            color: white;
+        }
+        .footer-copyright:not(p){
+            background-color: lightblue;
+            opacity: 0.7;
+            top: 10px;
+        }
+        .row div p{
+            color: #cfcfcf;;
+        }
+    </style>
+    <script type="text/javascript">
+        var ochko = 0,
+            numquest, numans, TrueValue, elements;
+        var WordNum = 0,
+            ans = 0,
+            Q1 = 1;
+        var AnsWord = 0;
+        var Answers = [
+            ["&lt;javascript&gt;","&lt;scripting&gt;","&lt;js&gt;","&lt;script&gt;"],
+			['#demo.innerHTML = "Hello World!;"',
+			'document.getElement("p").innerHTML = "Hello World!";',
+			'document.getElementByName("p").innerHTML = "Hello World!";',
+			'document.getElementById("demo").innerHTML = "Hello World!";'],
+			["The &lt;body&gt; section",
+			"Both the &lt;head&gt; section and the &lt;body&gt; section are correct",
+			"The &lt;head&gt; section","Outside of &lt;body&gt; section"],
+			['&lt;script name="xxx.js"&gt;',
+			'&lt;script src="xxx.js"&gt;',
+			'&lt;script href="xxx.js"&gt;',
+			'&lt;script&gt; xxx.js &lt;/script&gt;'],
+			["True","False","Optional","In some parts only"]
+        ];
+        var Questions = ["Inside which HTML element do we put the JavaScript?",
+		'What is the correct JavaScript syntax to change the content of the HTML element below?<br>&lt;p id="demo"&gt;This is a demonstration.&lt;/p&gt;',
+		'Where is the correct place to insert a JavaScript?',
+		'What is the correct syntax for referring to an external script called "xxx.js"?',
+		'The external JavaScript file must contain the &lt;script&gt; tag.'];
+        var checking = [4,4, 4, 2, 2, 2];
+    </script>
+    </head>
+
+    <body>
+
+        <div class="navBar">
+            <ul class="mynavbar fixed-top">
+                <li class="mynavbarl"><a class="active" href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="mynavbarl"><a href="quizes.html">Quizes</a></li>
+                <li class="mynavbarl"><a href="Mquize.html">Creating Quizes</a></li>
+                <li class="mynavbarl"><a href="resources.html" id="resources">Resources</a></li>
+                <li class="mynavbarl"><a href="about us.html">About</a></li>
+                <div>
+                    <li class="mynavbarl sign"><a href="Sign-in.html">Sign In</a></li>
+                    <li class="mynavbarl"><a href="Sign-up.html">Sign Up</a></li>
+                </div>
+            </ul>
+        </div>
+
+        <div class="ConTent">
+            <div class="content">
+                <h4>Quiz N:1 - Check Yourself...</h4>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="question col-6"><span id="Q1">1.</span>
+                        <p id="Question">How do you write "Hello World" in an alert box?</p>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                <div class="row">
+
+                    <div class="col-1"></div>
+                    <button id="ANSW1" class="AnsBtn col-4" onclick="myFunc1()"><span>A</span>
+                        <p id="ans1">msgBox("Hello World");</p>
+                    </button>
+                    <div class="col-2"></div>
+                    <button id="ANSW3" class="AnsBtn col-4" onclick="myFunc3()"><span>C</span>
+                        <p id="ans3">alertBox("Hello World");</p>
+                    </button>
+                    <div class="col-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <button id="ANSW2" class="AnsBtn col-4" onclick="myFunc2()"><span>B</span>
+                        <p id="ans2">msg("Hello World");</p>
+                    </button>
+                    <div class="col-2"></div>
+                    <button id="ANSW4" class="AnsBtn col-4" onclick="myFunc4()"><span>D</span>
+                        <p id="ans4">alert("Hello World");</p>
+                    </button>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
+        <!-- .ConTent -->
+        <a href="#" class="Next" onclick="myNext()">Next</a>
+
+        <div class="ochko">
+            <p id="ochko"></p>
+        </div>
+
+        <div class="footer" text-align="center">
+<footer class="page-footer font-small blue pt-4">
+
+  <div class="container-fluid text-center text-md-left">
+
+    <div class="row">
+
+      <div class="col-md-6 mt-md-0 mt-3">
+
+        <h5 class="text-uppercase">Edu-Action</h5>
+        <p>"A man only learns in two ways, one by reading, and the other by association with smarter people." <br>&nbsp;&nbsp;&nbsp; - Will Rogers</p>
+        <p>We will give you a chance to hold both.</p>
+
+      </div>
+
+      <hr class="clearfix w-100 d-md-none pb-3">
+
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <h5 class="text-uppercase">Site</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="Mquize.html">Make Quizzes</a>
+          </li>
+          <li>
+            <a href="resources.html">Educational Resources</a>
+          </li>
+          <li>
+            <a href="quizes.html">Quizzes</a>
+          </li>
+          <li>
+            <a href="index.html">Main Page</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="col-md-3 mb-md-0 mb-3">
+
+        <h5 class="text-uppercase">About</h5>
+
+        <ul class="list-unstyled">
+          <li>
+            <a href="Sign-in.html">Submit</a>
+          </li>
+          <li>
+            <a href="Terms.html">Terms & Conditions</a>
+          </li>
+          <li>
+            <a href="Privacy.html">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="about us.html">Contact Us</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="footer-copyright text-center py-3 mt-5"><p style="opacity: 1;">© 2019 Copyright:
+    <a href="https://sobirjon.eu5.org"> Sobirjon_20182655</a></p>
+  </div>
+
+</footer>
+</div>
+
+        <script type="text/javascript">
+            function myFunc1() {
+                ans = 1;
+                TrueValue = document.getElementById("ANSW1");
+                myFunction(ans)
+            };
+
+            function myFunc2() {
+                ans = 2;
+                TrueValue = document.getElementById("ANSW2");
+                myFunction(ans)
+            };
+
+            function myFunc3() {
+                ans = 3;
+                TrueValue = document.getElementById("ANSW3");
+                myFunction(ans)
+            };
+
+            function myFunc4() {
+                ans = 4;
+                TrueValue = document.getElementById("ANSW4");
+                myFunction(ans)
+            };
+
+            function myFunction() {
+                checker = checking[WordNum];
+                // document.getElementById("demo").innerHTML = space;
+                // checker= checking[WordNum];
+                if (ans == checker) {
+                    TrueValue.style.backgroundColor = "green";
+                    ochko = ochko + 1;
+                    // alert("Please insert question");//background o'zgartirilsin, 1 ball hioblansin
+                    // ochko++;
+                } else {
+                    TrueValue.style.backgroundColor = "red";
+                    // alert("Question N: has been saved!");				
+                }
+
+            };
+
+            function myNext() {
+                for (var i = 0; i < 4; i++) {
+                    document.getElementsByClassName("AnsBtn")[i].style.backgroundColor = "#4433ff";
+                }
+                var i = 0;
+
+                if (WordNum + 1 == 5) {
+                    document.getElementsByClassName("ochko")[0].style.display = 'block';
+                    document.getElementById("ochko").innerHTML = ochko;
+                    document.getElementsByClassName("Next")[0].style.display = 'none';
+                } else {
+
+                    Q1 = Q1 + 1;
+                    document.getElementById("Q1").innerHTML = Q1 + ".";
+
+                    numquest = Questions[WordNum];
+                    document.getElementById("Question").innerHTML = numquest;
+
+                    numans = Answers[WordNum][AnsWord];
+                    document.getElementById("ans1").innerHTML = numans;
+                    AnsWord = AnsWord + 1;
+                    numans = Answers[WordNum][AnsWord];
+                    document.getElementById("ans2").innerHTML = numans;
+                    AnsWord = AnsWord + 1;
+                    numans = Answers[WordNum][AnsWord];
+                    document.getElementById("ans3").innerHTML = numans;
+                    AnsWord = AnsWord + 1;
+                    numans = Answers[WordNum][AnsWord];
+                    document.getElementById("ans4").innerHTML = numans;
+                    AnsWord = 0;
+                    WordNum = WordNum + 1;
+                }
+
+            }
+        </script>
+    </body>
+
+</html>
+</body>
+
+</html>

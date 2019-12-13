@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Making Quiz</title>
+	<link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aa44593961.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <style type="text/css">
+
+        .content {
+            position: relative;
+            top: 100px;
+        }
+        
+        .content h4 {
+            text-align: center;
+        }
+        
+        div {
+            align-items: center;
+        }
+        
+        .question {
+            position: relative;
+            background-color: #8844aa;
+            height: 100px;
+            width: 800px;
+            text-align: center;
+            background-position: center;
+            /*left: 27%;*/
+            padding-top: 10px;
+        }
+        
+        div button {
+            width: 300px;
+            height: 100px;
+            background-color: #4433ff;
+            margin-top: 50px;
+        }
+        
+        div button:hover {
+            cursor: pointer;
+        }
+
+        p {
+            padding-top: 5px;
+            color: white;
+        }
+        
+        span {
+            color: orange;
+        }
+        
+        #Q1 {
+            text-align: left;
+        }
+        
+        .ConTent {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="ConTent">
+            <div class="content">
+                <h4>Check Yourself...</h4>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="question col-6"><span id="Q1">1.</span>
+                        <p id="Question">Question</p>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                <div class="row">
+
+                    <div class="col-1"></div>
+                    <button id="ANSW1" class="AnsBtn col-4" onclick="myFunc1()"><span>A</span>
+                        <p id="ans1">Answer1</p>
+                    </button>
+                    <div class="col-2"></div>
+                    <button id="ANSW3" class="AnsBtn col-4" onclick="myFunc3()"><span>C</span>
+                        <p id="ans3">Answer3</p>
+                    </button>
+                    <div class="col-1"></div>
+                </div>
+                <div class="row">
+                    <div class="col-1"></div>
+                    <button id="ANSW2" class="AnsBtn col-4" onclick="myFunc2()"><span>B</span>
+                        <p id="ans2">Answer2</p>
+                    </button>
+                    <div class="col-2"></div>
+                    <button id="ANSW4" class="AnsBtn col-4" onclick="myFunc4()"><span>D</span>
+                        <p id="ans4">Answer4</p>
+                    </button>
+                    <div class="col-1"></div>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>
